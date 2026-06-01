@@ -1,4 +1,7 @@
+"use client";
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu } from 'lucide-react';
 import {
   SignedIn,
@@ -9,6 +12,15 @@ import {
 } from '@clerk/nextjs';
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  const linkClass = (href: string) =>
+    `font-medium transition-colors ${
+      pathname === href || pathname.startsWith(href + "/")
+        ? "text-primary font-semibold"
+        : "text-gray-300 hover:text-white"
+    }`;
+
   return (
     <nav className="sticky top-0 z-50 bg-secondary-dark/70 backdrop-blur-lg border-b border-white/5 py-4 transition-all">
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -18,10 +30,10 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden md:flex space-x-8 items-center font-body">
-          <Link href="/directory" className="text-gray-300 hover:text-white font-medium transition-colors">
+          <Link href="/directory" className={linkClass("/directory")}>
             Directory
           </Link>
-          <Link href="/dashboard" className="text-gray-300 hover:text-white font-medium transition-colors">
+          <Link href="/dashboard" className={linkClass("/dashboard")}>
             Dashboard
           </Link>
 
@@ -40,7 +52,7 @@ export default function Navbar() {
           </SignedOut>
 
           <SignedIn>
-            <Link href="/dashboard" className="text-gray-300 hover:text-white font-medium transition-colors">
+            <Link href="/dashboard" className={linkClass("/dashboard")}>
               My Dashboard
             </Link>
             <UserButton
