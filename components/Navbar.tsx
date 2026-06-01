@@ -3,20 +3,29 @@ import { Menu } from 'lucide-react';
 
 export default function Navbar() {
   return (
-    <nav className="bg-secondary-dark border-b border-gray-800 py-4">
+    <nav className="sticky top-0 z-50 bg-secondary-dark/70 backdrop-blur-lg border-b border-white/5 py-4 transition-all">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-sans font-bold text-white flex items-center gap-2">
-          <span className="text-primary">Dhaka</span>Founders
+        {/* Premium Brand Logo */}
+        <Link href="/" className="text-3xl font-sans font-black text-white flex items-center tracking-tighter transition-opacity hover:opacity-90">
+          <span className="text-primary mr-1">Dhaka</span>Founders
         </Link>
-        <div className="hidden md:flex space-x-6 items-center">
-          <Link href="/directory" className="text-gray-300 hover:text-white transition-colors">Directory</Link>
-          <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors">Dashboard</Link>
-          <button className="bg-primary hover:bg-primary-dark text-white px-5 py-2 rounded-lg font-medium transition-colors">
-            Sign In
+        
+        <div className="hidden md:flex space-x-8 items-center font-body">
+          <Link href="/directory" className="text-gray-300 hover:text-white font-medium transition-colors">
+            Directory
+          </Link>
+          <Link href="/dashboard" className="text-gray-300 hover:text-white font-medium transition-colors">
+            Dashboard
+          </Link>
+          {/* Animated Join Button */}
+          <button className="bg-primary hover:bg-primary-light text-white px-7 py-2.5 rounded-xl font-bold transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(0,123,255,0.4)]">
+            Join
           </button>
         </div>
-        <button className="md:hidden text-white">
-          <Menu size={24} />
+        
+        {/* Mobile Menu Icon */}
+        <button className="md:hidden text-gray-300 hover:text-white transition-colors">
+          <Menu size={28} />
         </button>
       </div>
     </nav>
