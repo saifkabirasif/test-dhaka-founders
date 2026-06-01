@@ -1,12 +1,16 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { updateSession } from "@/utils/supabase/middleware";
 
-// Only /dashboard and its sub-routes require authentication
 const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
 
 export default clerkMiddleware(async (auth, request) => {
   if (isProtectedRoute(request)) {
     await auth().protect();
   }
+
+  const supabaseResponse = await updateSession(request);
+
+  return supabaseResponse;
 });
 
 export const config = {

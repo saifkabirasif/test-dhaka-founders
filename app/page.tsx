@@ -1,9 +1,11 @@
 import { ArrowRight, Users, Rocket, Building2 } from 'lucide-react';
 import Link from 'next/link';
+import SupabaseTest from '@/components/SupabaseTest';
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
+      <SupabaseTest />
       {/* Hero Section */}
       <section className="w-full relative overflow-hidden py-24 md:py-32">
         <div className="absolute inset-0 bg-gradient-to-br from-secondary-dark to-secondary z-0" />
@@ -11,10 +13,10 @@ export default function Home() {
         
         <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 font-sans">
-            Connect with the Builders Shaping <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary">Dhaka’s Future</span>
+            Connect with the Builders Shaping <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary">Dhaka's Future</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-10 font-body max-w-2xl mx-auto leading-relaxed">
-            Dhaka’s Startup Ecosystem, All in One Place. Meet your next co-founder, investor, or early adopter in the heart of Dhaka.
+            Dhaka's Startup Ecosystem, All in One Place. Meet your next co-founder, investor, or early adopter in the heart of Dhaka.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/directory" className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center gap-2 group shadow-lg shadow-primary/25">
